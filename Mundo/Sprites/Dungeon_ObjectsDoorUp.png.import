@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wy1086u52vr"
-path="res://.godot/imported/Dungeon_ObjectBigdoor.png-b157a777c13ef3619aed92b759996fb6.ctex"
+uid="uid://cvvwjepgmpvdf"
+path="res://.godot/imported/Dungeon_ObjectsDoorUp.png-3ee89c0ee9c4261cfb582756fe828513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mapa/Sprites/Dungeon_ObjectBigdoor.png"
-dest_files=["res://.godot/imported/Dungeon_ObjectBigdoor.png-b157a777c13ef3619aed92b759996fb6.ctex"]
+source_file="res://Mundo/Sprites/Dungeon_ObjectsDoorUp.png"
+dest_files=["res://.godot/imported/Dungeon_ObjectsDoorUp.png-3ee89c0ee9c4261cfb582756fe828513.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c46oius76vsw6"
-path="res://.godot/imported/Dungeon_Autotiles.png-941b993a968d1a0dafd0df1e1606b714.ctex"
+uid="uid://cfpltgj8cgdob"
+path="res://.godot/imported/SmoothdungeonTileset.png-3164a72d90956615f65da0cccf7665ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mapa/Sprites/Tiles/Dungeon_Autotiles.png"
-dest_files=["res://.godot/imported/Dungeon_Autotiles.png-941b993a968d1a0dafd0df1e1606b714.ctex"]
+source_file="res://Mundo/Sprites/Tiles/SmoothdungeonTileset.png"
+dest_files=["res://.godot/imported/SmoothdungeonTileset.png-3164a72d90956615f65da0cccf7665ff.ctex"]
 
 [params]
 

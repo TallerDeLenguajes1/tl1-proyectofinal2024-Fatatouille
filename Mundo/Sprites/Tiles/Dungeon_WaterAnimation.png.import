@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d26mgrsu2yqsp"
-path="res://.godot/imported/Dungeon_ObjectsBig.png-e028f2ffeffd156b881b4a38ab896502.ctex"
+uid="uid://dba0yhlmrmc1r"
+path="res://.godot/imported/Dungeon_WaterAnimation.png-964a787ddaabd58a3f9aa2bfb594d4ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mapa/Sprites/Dungeon_ObjectsBig.png"
-dest_files=["res://.godot/imported/Dungeon_ObjectsBig.png-e028f2ffeffd156b881b4a38ab896502.ctex"]
+source_file="res://Mundo/Sprites/Tiles/Dungeon_WaterAnimation.png"
+dest_files=["res://.godot/imported/Dungeon_WaterAnimation.png-964a787ddaabd58a3f9aa2bfb594d4ef.ctex"]
 
 [params]
 

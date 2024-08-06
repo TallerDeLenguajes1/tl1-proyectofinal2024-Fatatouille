@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvvwjepgmpvdf"
-path="res://.godot/imported/Dungeon_ObjectsDoorUp.png-5c3a220d9b24f2eb4dc92bf8115fec72.ctex"
+uid="uid://c46oius76vsw6"
+path="res://.godot/imported/Dungeon_Autotiles.png-248304cec91cd5562772e804d7aa5b20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mapa/Sprites/Dungeon_ObjectsDoorUp.png"
-dest_files=["res://.godot/imported/Dungeon_ObjectsDoorUp.png-5c3a220d9b24f2eb4dc92bf8115fec72.ctex"]
+source_file="res://Mundo/Sprites/Tiles/Dungeon_Autotiles.png"
+dest_files=["res://.godot/imported/Dungeon_Autotiles.png-248304cec91cd5562772e804d7aa5b20.ctex"]
 
 [params]
 
