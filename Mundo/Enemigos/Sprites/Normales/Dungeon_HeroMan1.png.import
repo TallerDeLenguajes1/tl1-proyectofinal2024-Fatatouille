@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgkoelud7aito"
-path="res://.godot/imported/Dungeon_HeroMan1.png-3888e7cea7fface18d1319fe6e4410d1.ctex"
+path="res://.godot/imported/Dungeon_HeroMan1.png-a1fdfb661badedb77f2452f46a9c0594.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/Enemigos/Assets/Dungeon_HeroMan1.png"
-dest_files=["res://.godot/imported/Dungeon_HeroMan1.png-3888e7cea7fface18d1319fe6e4410d1.ctex"]
+source_file="res://Mundo/Enemigos/Sprites/Normales/Dungeon_HeroMan1.png"
+dest_files=["res://.godot/imported/Dungeon_HeroMan1.png-a1fdfb661badedb77f2452f46a9c0594.ctex"]
 
 [params]
 

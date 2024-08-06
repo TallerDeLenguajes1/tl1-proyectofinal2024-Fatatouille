@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f15lbua7xsjk"
-path="res://.godot/imported/Dungeon_Slimes1.png-a1b793447a27677f8c726f6d36671682.ctex"
+path="res://.godot/imported/Dungeon_Slimes1.png-e65879f11e66edd8e238523998bdbeec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/Enemigos/Assets/Dungeon_Slimes1.png"
-dest_files=["res://.godot/imported/Dungeon_Slimes1.png-a1b793447a27677f8c726f6d36671682.ctex"]
+source_file="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Slimes1.png"
+dest_files=["res://.godot/imported/Dungeon_Slimes1.png-e65879f11e66edd8e238523998bdbeec.ctex"]
 
 [params]
 

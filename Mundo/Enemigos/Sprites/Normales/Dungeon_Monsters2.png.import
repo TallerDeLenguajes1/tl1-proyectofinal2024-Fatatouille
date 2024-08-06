@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddoove0aroloh"
-path="res://.godot/imported/Dungeon_Monsters2.png-2b4077d9ba84688bec8d9dddfbf1d662.ctex"
+path="res://.godot/imported/Dungeon_Monsters2.png-9b7a4d098c1c69883e2591bccf584600.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personajes/Enemigos/Assets/Dungeon_Monsters2.png"
-dest_files=["res://.godot/imported/Dungeon_Monsters2.png-2b4077d9ba84688bec8d9dddfbf1d662.ctex"]
+source_file="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Monsters2.png"
+dest_files=["res://.godot/imported/Dungeon_Monsters2.png-9b7a4d098c1c69883e2591bccf584600.ctex"]
 
 [params]
 
