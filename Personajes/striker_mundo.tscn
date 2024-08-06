@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://wohfvk77v00a"]
+
+[ext_resource type="Texture2D" uid="uid://b3gcx6wdsf4d3" path="res://Personajes/Sprites/Striker/Drakula_SpriteSheet.png" id="1_1vkcb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hihvr"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4578r"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iohw1"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jpmj"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75udr"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7q4b"]
+atlas = ExtResource("1_1vkcb")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8teil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hihvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4578r")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iohw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jpmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75udr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7q4b")
+}],
+"loop": false,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icblb"]
+size = Vector2(30, 31)
+
+[node name="striker_mundo" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(180, 138)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8teil")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(179, 138.5)
+shape = SubResource("RectangleShape2D_icblb")

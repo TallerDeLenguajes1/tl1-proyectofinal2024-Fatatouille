@@ -115,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4iiqk")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk_down",
 "speed": 5.0
 }, {
@@ -132,7 +132,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ixf30")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk_left",
 "speed": 5.0
 }, {
@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t54lk")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk_right",
 "speed": 5.0
 }, {
@@ -166,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hpdj1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk_up",
 "speed": 5.0
 }]
@@ -181,8 +181,7 @@ height = 16.0
 texture_filter = 1
 position = Vector2(89, 63)
 sprite_frames = SubResource("SpriteFrames_2bo7c")
-animation = &"Walk_up"
-frame_progress = 0.311824
+animation = &"Walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(89, 67)

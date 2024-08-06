@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bajujvhwkl2hk"]
+
+[ext_resource type="Texture2D" uid="uid://b13fx4t0hx87y" path="res://Personajes/Sprites/Ronin/CultistDownWalk.png" id="1_ljugp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myapd"]
+atlas = ExtResource("1_ljugp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubjlc"]
+atlas = ExtResource("1_ljugp")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3o8i"]
+atlas = ExtResource("1_ljugp")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy2kc"]
+atlas = ExtResource("1_ljugp")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pein5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myapd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubjlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3o8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy2kc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ej262"]
+radius = 7.0
+
+[node name="Ronin_mundo" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(164, 88)
+sprite_frames = SubResource("SpriteFrames_pein5")
+frame_progress = 0.887247
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(164, 89)
+shape = SubResource("CapsuleShape2D_ej262")

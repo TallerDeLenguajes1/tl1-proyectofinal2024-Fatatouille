@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdj1e62s1csuf"]
+
+[ext_resource type="Texture2D" uid="uid://bih24eoyc2vsg" path="res://Personajes/Sprites/Ronin/spr_RoninIdle_strip.png" id="1_rfwt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04s03"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txjt7"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy4it"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqr71"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0a8k"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmlpy"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqwpb"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87738"]
+atlas = ExtResource("1_rfwt4")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4g7uv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04s03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txjt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy4it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqr71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0a8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmlpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqwpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87738")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjwrk"]
+size = Vector2(29, 31)
+
+[node name="Ronin_combate" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(73, 73)
+sprite_frames = SubResource("SpriteFrames_4g7uv")
+animation = &"Idle"
+frame_progress = 0.495763
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(72.5, 70.5)
+shape = SubResource("RectangleShape2D_xjwrk")
