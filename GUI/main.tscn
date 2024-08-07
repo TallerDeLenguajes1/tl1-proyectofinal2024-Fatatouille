@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://3rcb3ofeg7gy"]
+
+[node name="Main" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 150.0
+offset_top = 16.0
+offset_right = 226.0
+offset_bottom = 39.0
+text = "JUEGUITO"
+
+[node name="Iniciar" type="Button" parent="."]
+texture_filter = 1
+offset_left = 159.0
+offset_top = 72.0
+offset_right = 216.0
+offset_bottom = 103.0
+text = "Iniciar"
+
+[node name="Salir" type="Button" parent="."]
+texture_filter = 1
+offset_left = 166.0
+offset_top = 121.0
+offset_right = 208.0
+offset_bottom = 152.0
+text = "Salir"

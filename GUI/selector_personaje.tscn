@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://41kf4buh7o3m"]
+
+[node name="Selector_Personaje" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.291639, 0, 0.0472845, 1)
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 125.0
+offset_bottom = 152.0
+
+[node name="Button" type="Button" parent="Panel3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 99.0
+offset_right = 63.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 8
+text = "Seleccionar"
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 178.0
+offset_right = 51.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 10
+text = "Atrás"
+
+[node name="Panel4" type="Panel" parent="."]
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 237.0
+offset_bottom = 152.0
+
+[node name="Button" type="Button" parent="Panel4"]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 99.0
+offset_right = 63.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 8
+text = "Seleccionar"
+
+[node name="Panel5" type="Panel" parent="."]
+offset_left = 272.0
+offset_top = 24.0
+offset_right = 349.0
+offset_bottom = 152.0
+
+[node name="Button" type="Button" parent="Panel5"]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 99.0
+offset_right = 63.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 8
+text = "Seleccionar"
