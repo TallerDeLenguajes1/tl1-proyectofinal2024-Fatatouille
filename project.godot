@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Proyecto Final Taller"
+run/main_scene="res://GUI/main.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Settings/Autoload/Global.cs"
 
 [display]
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://4us2xwvim1ij"]
+[gd_scene load_steps=3 format=3 uid="uid://4us2xwvim1ij"]
 
+[ext_resource type="Script" path="res://Mundo/Niveles/level_1.cs" id="1_cgn40"]
 [ext_resource type="PackedScene" uid="uid://s0t0hapa2agv" path="res://Mundo/Niveles/level_1_tile.tscn" id="1_o2v1w"]
 
 [node name="level_1" type="Node2D"]
+script = ExtResource("1_cgn40")
 
 [node name="Level_1" parent="." instance=ExtResource("1_o2v1w")]

@@ -25,9 +25,9 @@ public partial class selector_personaje : CanvasLayer
 
         botones[botonSeleccionado].GrabFocus();
 
-		//SeleccionarKing.Pressed += OnKingPressed;
-		//SeleccionarRonin.Pressed += OnRoninPressed;
-		//SeleccionarStriker.Pressed += OnStrikerPressed;
+		SeleccionarKing.Pressed += OnKingPressed;
+		SeleccionarRonin.Pressed += OnRoninPressed;
+		SeleccionarStriker.Pressed += OnStrikerPressed;
 
 		volver = GetNode<Button>("Atras");
 		volver.Pressed += OnAtrasPressed;
@@ -79,14 +79,25 @@ public partial class selector_personaje : CanvasLayer
         GetTree().ChangeSceneToFile("res://GUI/main.tscn");
     }
 
-	/*private void OnKingPressed(){
-
+	private void OnKingPressed(){
+		SeleccionarPersonaje(0);
 	}
 	private void OnRoninPressed(){
-		
+		SeleccionarPersonaje(1);
 	}
 	private void OnStrikerPressed(){
+		SeleccionarPersonaje(2);
+	}
+
+	private void SeleccionarPersonaje(int personajeId)
+	{
+		Global global = (Global)GetNode("/root/Global");
 		
-	}*/
+		global.Seleccionado = personajeId;
+
+		GD.Print($"Personaje {personajeId} seleccionado.");
+
+		GetTree().ChangeSceneToFile("res://Mundo/Niveles/level_1.tscn");
+	}
 
 }
