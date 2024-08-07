@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://3rcb3ofeg7gy"]
+[gd_scene load_steps=3 format=3 uid="uid://3rcb3ofeg7gy"]
+
+[ext_resource type="Script" path="res://GUI/main.cs" id="1_v5qvg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yepca"]
+bg_color = Color(0.509804, 0, 0.14902, 1)
 
 [node name="Main" type="CanvasLayer"]
+script = ExtResource("1_v5qvg")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -8,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yepca")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
