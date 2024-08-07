@@ -34,7 +34,7 @@ offset_top = 24.0
 offset_right = 136.0
 offset_bottom = 152.0
 
-[node name="Button" type="Button" parent="Panel3"]
+[node name="SeleccionarKing" type="Button" parent="Panel3"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 14.0
@@ -75,8 +75,9 @@ offset_top = 24.0
 offset_right = 240.0
 offset_bottom = 152.0
 
-[node name="Button" type="Button" parent="Panel4"]
+[node name="SeleccionarRonin" type="Button" parent="Panel4"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 14.0
 offset_top = 99.0
 offset_right = 72.0
@@ -86,6 +87,7 @@ text = "Seleccionar"
 
 [node name="Label" type="Label" parent="Panel4"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 24.0
 offset_top = 80.0
 offset_right = 55.0
@@ -104,8 +106,9 @@ offset_top = 24.0
 offset_right = 352.0
 offset_bottom = 152.0
 
-[node name="Button" type="Button" parent="Panel5"]
+[node name="SeleccionarStriker" type="Button" parent="Panel5"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 14.0
 offset_top = 99.0
 offset_right = 72.0
@@ -115,6 +118,7 @@ text = "Seleccionar"
 
 [node name="Label" type="Label" parent="Panel5"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 25.0
 offset_top = 80.0
 offset_right = 50.0

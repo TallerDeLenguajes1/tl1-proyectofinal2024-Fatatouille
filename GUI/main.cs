@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Teclas;
 
 public partial class main : CanvasLayer
 {
@@ -24,35 +25,23 @@ public partial class main : CanvasLayer
     {
         if (@event.IsActionPressed("ui_down"))
         {
-            MoverFoco(1);
+            Navegacion.MoverFoco(botones, ref botonSeleccionado, 1);
         }
 
         if (@event.IsActionPressed("ui_up"))
         {
-            MoverFoco(-1);
+            Navegacion.MoverFoco(botones, ref botonSeleccionado, -1);
         }
 
         if (@event.IsActionPressed("ui_accept"))
         {
-            botones[botonSeleccionado].EmitSignal("pressed");
+            Navegacion.ActivarBoton(botones, botonSeleccionado);
         }
 
         if (@event.IsActionPressed("ui_cancel"))
         {
             botonSalir.EmitSignal("pressed");
         }
-    }
-
-    private void MoverFoco(int direccion)
-    {
-        // Desactiva el foco del botón actual.
-        botones[botonSeleccionado].ReleaseFocus();
-
-        // Calcula el nuevo índice de botón seleccionado.
-        botonSeleccionado = (botonSeleccionado + direccion + botones.Length) % botones.Length;
-
-        // Establece el foco en el nuevo botón.
-        botones[botonSeleccionado].GrabFocus();
     }
 
 	private void OnIniciarPressed()
