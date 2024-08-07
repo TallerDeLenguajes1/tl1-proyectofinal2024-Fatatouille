@@ -11,6 +11,14 @@ public partial class selector_personaje : CanvasLayer
 		volver.Pressed += OnAtrasPressed;
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("ui_cancel"))
+        {
+            volver.EmitSignal("pressed");
+        }
+	}
+
 	private void OnAtrasPressed()
     {
         GetTree().ChangeSceneToFile("res://GUI/main.tscn");

@@ -22,22 +22,24 @@ public partial class main : CanvasLayer
 
 	public override void _Input(InputEvent @event)
     {
-        // Detecta la navegación hacia abajo.
         if (@event.IsActionPressed("ui_down"))
         {
             MoverFoco(1);
         }
 
-        // Detecta la navegación hacia arriba.
         if (@event.IsActionPressed("ui_up"))
         {
             MoverFoco(-1);
         }
 
-        // Detecta la acción de aceptar.
         if (@event.IsActionPressed("ui_accept"))
         {
             botones[botonSeleccionado].EmitSignal("pressed");
+        }
+
+        if (@event.IsActionPressed("ui_cancel"))
+        {
+            botonSalir.EmitSignal("pressed");
         }
     }
 
