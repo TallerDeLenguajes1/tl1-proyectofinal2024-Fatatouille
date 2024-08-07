@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://boda6g41m7qb4"]
+[gd_scene load_steps=26 format=3 uid="uid://boda6g41m7qb4"]
 
+[ext_resource type="Script" path="res://Personajes/Scripts/King_mundo.cs" id="1_ljvfg"]
 [ext_resource type="Texture2D" uid="uid://dimdl18q4vevn" path="res://Personajes/Sprites/King/Char_003_Idle.png" id="1_rne01"]
 [ext_resource type="Texture2D" uid="uid://bubbohrpddsi1" path="res://Personajes/Sprites/King/Char_003.png" id="2_jycfr"]
 
@@ -100,7 +101,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -116,8 +117,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_4iiqk")
 }],
 "loop": false,
-"name": &"Walk_down",
-"speed": 5.0
+"name": &"Run_down",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,8 +134,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_ixf30")
 }],
 "loop": false,
-"name": &"Walk_left",
-"speed": 5.0
+"name": &"Run_left",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,8 +151,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_t54lk")
 }],
 "loop": false,
-"name": &"Walk_right",
-"speed": 5.0
+"name": &"Run_right",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -167,22 +168,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_hpdj1")
 }],
 "loop": false,
-"name": &"Walk_up",
-"speed": 5.0
+"name": &"Run_up",
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ik48x"]
 radius = 6.0
-height = 16.0
+height = 14.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ljvfg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(89, 63)
+position = Vector2(13.5, 13.5)
+scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_2bo7c")
-animation = &"Walk_down"
+animation = &"Run_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(89, 67)
+position = Vector2(14, 20)
 shape = SubResource("CapsuleShape2D_ik48x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.15, 1.15)
+limit_left = 0
+limit_top = -48
+limit_right = 544
+limit_bottom = 224

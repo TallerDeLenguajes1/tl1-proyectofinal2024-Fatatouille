@@ -20,6 +20,11 @@ public partial class level_1 : Node2D
             {
                 Node personajeInstance = personajeScene.Instantiate();
                 AddChild(personajeInstance);
+
+				if (personajeInstance is CharacterBody2D character)
+                {
+                    character.Position = new Vector2(15, 100);
+                }
             }
             else
             {
