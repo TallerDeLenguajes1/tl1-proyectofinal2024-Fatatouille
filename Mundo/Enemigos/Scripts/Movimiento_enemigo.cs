@@ -20,7 +20,7 @@ namespace MovimientoEnemigo
             _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
             _area = GetNode<Area2D>("Area2D");
-            _area.BodyEntered += OnPlayerEntered;
+            _area.BodyEntered += OnBodyEntered;
 
             foreach (Node child in GetChildren())
             {
@@ -50,7 +50,6 @@ namespace MovimientoEnemigo
             Vector2 direccion = (_posicionObjetivo - posicionActual).Normalized();
             Vector2 movimiento = direccion * Velocidad * (float)delta;
 
-            // Determinar qué animación reproducir
             if (Math.Abs(direccion.X) > Math.Abs(direccion.Y))
             {
                 if (direccion.X > 0)
@@ -79,16 +78,7 @@ namespace MovimientoEnemigo
 
         private void OnBodyEntered(Node body)
         {
-            // Verifica si el nodo con el que colisionamos es el personaje
-            if (body is Movimiento.Movimiento)
-            {
-                // Aquí puedes manejar lo que ocurre cuando el enemigo toca al personaje
-                // Por ejemplo, podrías cambiar la escena o iniciar un combate
-                GetTree().ChangeSceneToFile("res://Mundo/combate.tscn");
-            }
-        }
-        private void OnPlayerEntered(Node body)
-        {
+            
             if (body is Movimiento.Movimiento)
             {
                 GetTree().ChangeSceneToFile("res://Mundo/combate.tscn");
@@ -99,7 +89,7 @@ namespace MovimientoEnemigo
         {
             if (_area != null)
             {
-                _area.BodyEntered -= OnPlayerEntered;
+                _area.BodyEntered -= OnBodyEntered;
             }
         }
     }

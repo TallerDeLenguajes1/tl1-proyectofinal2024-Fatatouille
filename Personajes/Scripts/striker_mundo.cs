@@ -6,9 +6,13 @@ public partial class striker_mundo : CharacterBody2D
 	float velocidad = 100;
 	Vector2 distancia = new Vector2(0, 0);
 
+    private Area2D _area;
+
     public override void _Ready()
     {
-        
+        _area = GetNode<Area2D>("Area2D");
+
+        _area.BodyEntered += OnBodyEntered;
     }
     public override void _Process(double delta)
     {
@@ -38,5 +42,20 @@ public partial class striker_mundo : CharacterBody2D
         distancia.Y *= velocidad * (float) delta;
 
         MoveAndCollide(distancia);
+    }
+    private void OnBodyEntered(Node body)
+    {
+        if (body is MovimientoEnemigo.Movimiento_Enemigo)
+        {
+            GetTree().ChangeSceneToFile("res://Mundo/combate.tscn");
+        }
+    }
+
+    public override void _ExitTree()
+    {
+        if (_area != null)
+        {
+            _area.BodyEntered -= OnBodyEntered;
+        }
     }
 }

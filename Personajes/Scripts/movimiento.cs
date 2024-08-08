@@ -9,7 +9,7 @@ namespace Movimiento
         public float Velocidad { get; set; } = 100;
 
         private Vector2 _distancia = new Vector2(0, 0);
-         private Area2D _area;
+        private Area2D _area;
 
         public override void _Ready()
         {
