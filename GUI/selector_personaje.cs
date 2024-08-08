@@ -94,6 +94,7 @@ public partial class selector_personaje : CanvasLayer
 		Global global = (Global)GetNode("/root/Global");
 		
 		global.Seleccionado = personajeId;
+		global.PersonajeCombate = personajeId;
 
 		GD.Print($"Personaje {personajeId} seleccionado.");
 

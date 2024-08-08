@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://8opxahqgbm8b"]
+
+[ext_resource type="Texture2D" uid="uid://ds0hi5uqjd7xe" path="res://Mundo/Enemigos/Sprites/Normales/Mushroom_Atack.png" id="1_0sllk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxviq"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tnd6"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kigbj"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cit4n"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylw8"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kevwp"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nm4u"]
+atlas = ExtResource("1_0sllk")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqxrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxviq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tnd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kigbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cit4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kevwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nm4u")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w54y"]
+size = Vector2(31, 37)
+
+[node name="Hongo_combate" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_dqxrc")
+animation = &"Idle"
+frame = 6
+frame_progress = 1.0
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 6.5)
+shape = SubResource("RectangleShape2D_1w54y")
