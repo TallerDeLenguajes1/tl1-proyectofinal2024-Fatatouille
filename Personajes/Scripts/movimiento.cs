@@ -9,6 +9,14 @@ namespace Movimiento
         public float Velocidad { get; set; } = 100;
 
         private Vector2 _distancia = new Vector2(0, 0);
+         private Area2D _area;
+
+        public override void _Ready()
+        {
+            _area = GetNode<Area2D>("Area2D");
+
+            _area.BodyEntered += OnBodyEntered;
+        }
 
         public override void _Process(double delta)
         {
@@ -56,6 +64,21 @@ namespace Movimiento
             _distancia.Y *= Velocidad * (float)delta;
 
             MoveAndCollide(_distancia);
+        }
+        private void OnBodyEntered(Node body)
+        {
+            if (body is MovimientoEnemigo.Movimiento_Enemigo)
+            {
+                GetTree().ChangeSceneToFile("res://Mundo/combate.tscn");
+            }
+        }
+
+        public override void _ExitTree()
+        {
+            if (_area != null)
+            {
+                _area.BodyEntered -= OnBodyEntered;
+            }
         }
     }
 }

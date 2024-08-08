@@ -196,3 +196,9 @@ limit_left = 0
 limit_top = -48
 limit_right = 560
 limit_bottom = 224
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(14, 20)
+shape = SubResource("CapsuleShape2D_ik48x")

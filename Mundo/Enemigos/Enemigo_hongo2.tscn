@@ -1,54 +1,54 @@
-[gd_scene load_steps=17 format=3 uid="uid://1kddn3nqjavq"]
+[gd_scene load_steps=17 format=3 uid="uid://c363qtdwcli8x"]
 
-[ext_resource type="Texture2D" uid="uid://ddoove0aroloh" path="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Monsters2.png" id="1_4xrnf"]
-[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo.cs" id="1_cmmkk"]
+[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo.cs" id="1_4lgoh"]
+[ext_resource type="Texture2D" uid="uid://ddoove0aroloh" path="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Monsters2.png" id="2_i38la"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmlqi"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(72, 224, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w66s2"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(96, 224, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_unb6k"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(120, 224, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4qgx"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(120, 160, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgxld"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(96, 160, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou2s2"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(72, 160, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8yup"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(72, 192, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tfnt"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(96, 192, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4nt3"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(120, 192, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3ey2"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(72, 128, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxyxx"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(96, 128, 24, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oiksm"]
-atlas = ExtResource("1_4xrnf")
+atlas = ExtResource("2_i38la")
 region = Rect2(120, 128, 24, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccq24"]
@@ -115,7 +115,7 @@ radius = 6.0
 height = 20.0
 
 [node name="Enemigo_hongo" type="CharacterBody2D"]
-script = ExtResource("1_cmmkk")
+script = ExtResource("1_4lgoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -127,10 +127,10 @@ position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_ysxka")
 
 [node name="Izquiera" type="Marker2D" parent="."]
-position = Vector2(-88, 0)
+position = Vector2(0, -55)
 
 [node name="Derecha" type="Marker2D" parent="."]
-position = Vector2(124, 0)
+position = Vector2(0, 59)
 
 [node name="Area2D" type="Area2D" parent="."]
 
