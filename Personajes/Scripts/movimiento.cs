@@ -69,7 +69,7 @@ namespace Movimiento
         {
             if (body is MovimientoEnemigo.Movimiento_Enemigo)
             {
-                GetTree().ChangeSceneToFile("res://Mundo/combate.tscn");
+                GetTree().ChangeSceneToFile("res://Mundo/Combate.tscn");
             }
         }
 

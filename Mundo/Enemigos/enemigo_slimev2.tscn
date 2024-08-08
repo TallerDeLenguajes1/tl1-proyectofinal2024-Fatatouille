@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://p7an1t5fyo1n"]
 
-[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo.cs" id="1_w1adl"]
+[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_slimev2.cs" id="1_lxk3e"]
 [ext_resource type="Texture2D" uid="uid://f15lbua7xsjk" path="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Slimes1.png" id="2_5l48h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vahdx"]
@@ -114,8 +114,8 @@ animations = [{
 radius = 6.0
 height = 14.0
 
-[node name="Enemigo_slimeV" type="CharacterBody2D"]
-script = ExtResource("1_w1adl")
+[node name="Enemigo_slimev2" type="CharacterBody2D"]
+script = ExtResource("1_lxk3e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

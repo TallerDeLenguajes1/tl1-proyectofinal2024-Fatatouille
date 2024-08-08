@@ -4,25 +4,26 @@
 [ext_resource type="PackedScene" uid="uid://s0t0hapa2agv" path="res://Mundo/Niveles/level_1_tile.tscn" id="1_o2v1w"]
 [ext_resource type="PackedScene" uid="uid://1kddn3nqjavq" path="res://Mundo/Enemigos/Enemigo_hongo.tscn" id="3_edfd1"]
 [ext_resource type="PackedScene" uid="uid://c363qtdwcli8x" path="res://Mundo/Enemigos/Enemigo_hongo2.tscn" id="4_sr5gr"]
-[ext_resource type="PackedScene" uid="uid://p7an1t5fyo1n" path="res://Mundo/Enemigos/enemigo_slimev2.tscn" id="5_g6jac"]
-[ext_resource type="PackedScene" uid="uid://bi334scimg22j" path="res://Mundo/Enemigos/Enemigo_slimeV.tscn" id="6_or6ha"]
+[ext_resource type="PackedScene" uid="uid://bi334scimg22j" path="res://Mundo/Enemigos/Enemigo_slimev.tscn" id="6_brq8w"]
+[ext_resource type="PackedScene" uid="uid://p7an1t5fyo1n" path="res://Mundo/Enemigos/Enemigo_slimev2.tscn" id="6_dlnai"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_cgn40")
 
 [node name="Level_1" parent="." instance=ExtResource("1_o2v1w")]
 
-[node name="Enemigo_hongo" parent="." instance=ExtResource("3_edfd1")]
-position = Vector2(302, 24)
-
 [node name="Enemigo_hongo2" parent="." instance=ExtResource("4_sr5gr")]
-position = Vector2(421, 114)
+position = Vector2(407, 98)
+Velocidad = null
 
-[node name="Enemigo_slimeV" parent="." instance=ExtResource("5_g6jac")]
-position = Vector2(238, 116)
+[node name="Enemigo_hongo" parent="." instance=ExtResource("3_edfd1")]
+position = Vector2(116, 35)
+Velocidad = null
 
-[node name="Enemigo_slimeV2" parent="." instance=ExtResource("6_or6ha")]
-position = Vector2(319, 187)
+[node name="Enemigo_slimev2" parent="." instance=ExtResource("6_dlnai")]
+position = Vector2(122, 120)
+Velocidad = null
 
-[node name="Enemigo_hongo3" parent="." instance=ExtResource("4_sr5gr")]
-position = Vector2(116, 83)
+[node name="Enemigo_slimev" parent="." instance=ExtResource("6_brq8w")]
+position = Vector2(346, 192)
+Velocidad = null

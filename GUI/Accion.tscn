@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt5oiv34xlium"]
+
+[ext_resource type="Texture2D" uid="uid://cx46w5574ma08" path="res://GUI/Sprites/15 Border 01.png" id="1_oka1t"]
+[ext_resource type="Script" path="res://GUI/Accion.cs" id="1_wc1hd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gscmd"]
+atlas = ExtResource("1_oka1t")
+region = Rect2(63.5591, 191.39, 64.2021, 64.6105)
+
+[node name="Accion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wc1hd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -78.0
+offset_right = -77.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+texture_filter = 1
+position = Vector2(32, 15)
+scale = Vector2(1.3125, 0.78125)
+texture = SubResource("AtlasTexture_gscmd")
+
+[node name="Atacar" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Atacar"
+
+[node name="Curar" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Curarse"

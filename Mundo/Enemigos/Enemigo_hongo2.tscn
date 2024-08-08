@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c363qtdwcli8x"]
 
-[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo.cs" id="1_4lgoh"]
+[ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo2.cs" id="1_enw37"]
 [ext_resource type="Texture2D" uid="uid://ddoove0aroloh" path="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Monsters2.png" id="2_i38la"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmlqi"]
@@ -114,8 +114,8 @@ animations = [{
 radius = 6.0
 height = 20.0
 
-[node name="Enemigo_hongo" type="CharacterBody2D"]
-script = ExtResource("1_4lgoh")
+[node name="Enemigo_hongo2" type="CharacterBody2D"]
+script = ExtResource("1_enw37")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
