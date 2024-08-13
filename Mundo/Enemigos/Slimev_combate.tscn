@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://y2wio6ctqrvy"]
+[gd_scene load_steps=52 format=3 uid="uid://y2wio6ctqrvy"]
 
 [ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Slimev_combate.cs" id="1_44h6d"]
 [ext_resource type="Texture2D" uid="uid://dwv35xpcf3k4a" path="res://Mundo/Enemigos/Sprites/Normales/Slime.png" id="1_xh5i8"]
@@ -363,51 +363,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppmiu"]
 size = Vector2(31, 19)
 
-[sub_resource type="Animation" id="Animation_x6yam"]
-resource_name = "daño"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -24), Vector2(0, -48)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.999885, 0.335091, 0.274893, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lghtr"]
-_data = {
-"damage": SubResource("Animation_x6yam")
-}
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(10, -7)
 script = ExtResource("1_44h6d")
@@ -422,22 +377,3 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.5, 7.5)
 shape = SubResource("RectangleShape2D_ppmiu")
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, -24)
-
-[node name="Label" type="Label" parent="Node2D"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lghtr")
-}
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -46.0
-offset_top = -13.0
-offset_right = 25.0
-offset_bottom = -3.0
-show_percentage = false

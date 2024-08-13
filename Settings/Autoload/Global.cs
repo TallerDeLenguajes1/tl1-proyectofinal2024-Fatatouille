@@ -4,6 +4,10 @@ using System;
 public partial class Global : Node
 {
     public int Seleccionado { get; set; } = -1; // -1 indica que ningún personaje está seleccionado.
+    public int vida { get; set; } = 100; //Empieza full vidsa
+    public int nivel {get; set; } = 1;
+    public int fuerza {get; set; } = 10;
+    public int stage {get; set; }= 1;
 
     public static Global Instance {get; private set; }
 
