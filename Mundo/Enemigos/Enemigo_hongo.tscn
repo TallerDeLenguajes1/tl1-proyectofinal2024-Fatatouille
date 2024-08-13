@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://1kddn3nqjavq"]
+[gd_scene load_steps=18 format=3 uid="uid://1kddn3nqjavq"]
 
 [ext_resource type="Texture2D" uid="uid://ddoove0aroloh" path="res://Mundo/Enemigos/Sprites/Normales/Dungeon_Monsters2.png" id="1_4xrnf"]
 [ext_resource type="Script" path="res://Mundo/Enemigos/Scripts/Enemigo_hongo.cs" id="1_cmmkk"]
@@ -114,8 +114,12 @@ animations = [{
 radius = 6.0
 height = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ak4"]
+size = Vector2(20, 22)
+
 [node name="Enemigo_hongo" type="CharacterBody2D"]
 script = ExtResource("1_cmmkk")
+Velocidad = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -135,5 +139,5 @@ position = Vector2(124, 0)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 5)
-shape = SubResource("CapsuleShape2D_ysxka")
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_x1ak4")

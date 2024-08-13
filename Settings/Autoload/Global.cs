@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using MovimientoEnemigo;
 
 public partial class Global : Node
 {
@@ -13,6 +14,7 @@ public partial class Global : Node
 
     public int PersonajeCombate{ get; set; } = -1;
     public string EnemigoSeleccionado { get; set; }
+    public Movimiento_Enemigo EnemigoActual { get; set; }
     public override void _Ready()
     {
         Instance = this;

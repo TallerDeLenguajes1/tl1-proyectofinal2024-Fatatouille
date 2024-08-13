@@ -14,8 +14,6 @@ namespace Movimiento
         public override void _Ready()
         {
             _area = GetNode<Area2D>("Area2D");
-
-            _area.BodyEntered += OnBodyEntered;
         }
 
         public override void _Process(double delta)
@@ -65,20 +63,6 @@ namespace Movimiento
 
             MoveAndCollide(_distancia);
         }
-        private void OnBodyEntered(Node body)
-        {
-            if (body is MovimientoEnemigo.Movimiento_Enemigo)
-            {
-                GetTree().ChangeSceneToFile("res://Mundo/Combate.tscn");
-            }
-        }
-
-        public override void _ExitTree()
-        {
-            if (_area != null)
-            {
-                _area.BodyEntered -= OnBodyEntered;
-            }
-        }
+        
     }
 }

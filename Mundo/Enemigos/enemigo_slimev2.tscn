@@ -116,6 +116,7 @@ height = 14.0
 
 [node name="Enemigo_slimev2" type="CharacterBody2D"]
 script = ExtResource("1_lxk3e")
+Velocidad = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

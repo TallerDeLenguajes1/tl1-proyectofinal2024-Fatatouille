@@ -81,7 +81,14 @@ namespace MovimientoEnemigo
             
             if (body is Movimiento.Movimiento)
             {
-                GetTree().ChangeSceneToFile("res://Mundo/Combate.tscn");
+                Global global = GetNode<Global>("/root/Global");
+                global.EnemigoActual = this;
+                
+                CallDeferred("CambiarNivel");
+                SetProcess(false);
+                SetPhysicsProcess(false);
+                GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+                GetTree().CreateTimer(0.5).Timeout += EliminarEnemigoDefinitivamente;
             }
         }
 
@@ -90,6 +97,19 @@ namespace MovimientoEnemigo
             if (_area != null)
             {
                 _area.BodyEntered -= OnBodyEntered;
+            }
+        }
+
+        private void CambiarNivel(){
+            GetTree().ChangeSceneToFile("res://Mundo/Combate.tscn");
+        }
+        private void EliminarEnemigoDefinitivamente()
+        {
+            Global global = GetNode<Global>("/root/Global");
+            if (global.EnemigoActual != null)
+            {
+                global.EnemigoActual.QueueFree();
+                global.EnemigoActual = null;
             }
         }
     }

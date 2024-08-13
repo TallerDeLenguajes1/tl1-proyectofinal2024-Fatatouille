@@ -8,6 +8,7 @@ public partial class level_1 : Node2D
     {
         // Obtén la instancia del script global.
         Global global = (Global)GetNode("/root/Global");
+        global.stage = 1;
 
         // Verifica que un personaje haya sido seleccionado.
         if (global.Seleccionado != -1)
