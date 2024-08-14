@@ -19,7 +19,7 @@ public partial class level_1 : Node2D
         DatosPersonaje datosPersonaje = await DatosPersonaje.CargarDatosAsync(filePath);
         global.stage = 1;
 
-        string clima = await ClimaAPI.GetClima("San Miguel de Tucumán");
+        string clima = await ClimaAPI.GetClima("Federal Republic of Germany");
 
         ConfigurarNivelSegunClima(clima);
 
