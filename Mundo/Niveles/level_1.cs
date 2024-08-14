@@ -87,21 +87,13 @@ public partial class level_1 : Node2D
         Global global = (Global)GetNode("/root/Global");
         global.Clima = clima.ToLower();
 
-        switch(clima.ToLower())
+        if(clima.ToLower()!="clear")
         {
-            case "rain":
-                Lluvia.Visible = true;
-                GD.Print("El clima es lluvioso. Activando efectos de lluvia.");
-                break;
-
-            case "clear":
-                Lluvia.Visible = false;
-                GD.Print("El clima está despejado. Configurando un día soleado.");
-                break;
-            default:
-                Lluvia.Visible = false;
-                GD.Print("Clima no reconocido: " + clima);
-                break;
+            Lluvia.Visible = true;
+            GD.Print("El clima es lluvioso. Activando efectos de lluvia.");
+        }else{
+            Lluvia.Visible = false;
+            GD.Print("El clima está despejado. Configurando un día soleado.");
         }
     }
 }

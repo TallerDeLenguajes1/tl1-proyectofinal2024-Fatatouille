@@ -27,13 +27,6 @@ public partial class Puerta : CharacterBody2D
 			GetTree().CreateTimer(1).Timeout += CambiarEscena;
 		}
 	}
-	public override void _ExitTree()
-        {
-            if (PuertaNivel != null)
-            {
-                PuertaNivel.BodyEntered -= OnBodyEntered;
-            }
-        }
 
 	private void CambiarEscena()
 	{
