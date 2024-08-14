@@ -19,6 +19,8 @@ public partial class Global : Node
     
     public string Estado {get; set;}
 
+    public string Clima {get; set;}
+
     public override void _Ready()
     {
         Instance = this;

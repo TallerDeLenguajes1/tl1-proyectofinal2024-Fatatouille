@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using MyGame;
+using System.Collections.Generic;
 
 public partial class GameOver : CanvasLayer
 {
@@ -11,7 +12,7 @@ public partial class GameOver : CanvasLayer
 	private Button Salir;
 	public override async void _Ready()
 	{
-		Salir = GetNode<Button>("Salir");
+		Salir = GetNode<Button>("Button");
 
 		EstadoLabel = GetNode<Label>("Estado");
 		PersonajeLabel = GetNode<Label>("Personaje");
@@ -30,12 +31,15 @@ public partial class GameOver : CanvasLayer
 			}
             PersonajeLabel.Text = $"Personaje utilizado: {datosPersonaje.Personaje}";
             StageLabel.Text = $"Máximo nivel alcanzado: {datosPersonaje.Stage}";
-            EnemigosLabel.Text = $"Enemigos asesinados: {datosPersonaje.VidaActual}";
+            EnemigosLabel.Text = $"Enemigos asesinados: {datosPersonaje.CantidadEnemigosEliminados}";
         }
         else
         {
             GD.PrintErr("No se pudieron cargar los datos del personaje.");
         }
+        Global global = (Global)GetNode("/root/Global");
+
+		global.EnemigosEliminados = new List<string>();;
 
 		Salir.Pressed += OnSalirPressed;
 	}

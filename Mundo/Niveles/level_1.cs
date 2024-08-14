@@ -1,13 +1,16 @@
 using Godot;
 using System;
 using MyGame;
+using System.Threading.Tasks;
 
 public partial class level_1 : Node2D
 {
     private string Nombre;
+    private StaticBody2D Lluvia;
 
 	public override async void _Ready()
     {
+        Lluvia = GetNode<StaticBody2D>("Lluvia");
         Global global = (Global)GetNode("/root/Global");
         string filePath = "user://DatosPersonaje.json";
 
@@ -15,6 +18,10 @@ public partial class level_1 : Node2D
 
         DatosPersonaje datosPersonaje = await DatosPersonaje.CargarDatosAsync(filePath);
         global.stage = 1;
+
+        string clima = await ClimaAPI.GetClima("San Miguel de Tucumán");
+
+        ConfigurarNivelSegunClima(clima);
 
         if(datosPersonaje != null)
         {
@@ -73,5 +80,28 @@ public partial class level_1 : Node2D
 
         string filePath = "user://DatosPersonaje.json";
         await datosPersonaje.GuardarDatosAsync(filePath);
+    }
+
+    private void ConfigurarNivelSegunClima(string clima)
+    {
+        Global global = (Global)GetNode("/root/Global");
+        global.Clima = clima.ToLower();
+
+        switch(clima.ToLower())
+        {
+            case "rain":
+                Lluvia.Visible = true;
+                GD.Print("El clima es lluvioso. Activando efectos de lluvia.");
+                break;
+
+            case "clear":
+                Lluvia.Visible = false;
+                GD.Print("El clima está despejado. Configurando un día soleado.");
+                break;
+            default:
+                Lluvia.Visible = false;
+                GD.Print("Clima no reconocido: " + clima);
+                break;
+        }
     }
 }

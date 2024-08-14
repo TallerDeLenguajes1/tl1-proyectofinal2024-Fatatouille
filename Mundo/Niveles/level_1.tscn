@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4us2xwvim1ij"]
+[gd_scene load_steps=10 format=3 uid="uid://4us2xwvim1ij"]
 
 [ext_resource type="Script" path="res://Mundo/Niveles/level_1.cs" id="1_cgn40"]
 [ext_resource type="PackedScene" uid="uid://s0t0hapa2agv" path="res://Mundo/Niveles/level_1_tile.tscn" id="1_o2v1w"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bi334scimg22j" path="res://Mundo/Enemigos/Enemigo_slimev.tscn" id="6_brq8w"]
 [ext_resource type="PackedScene" uid="uid://p7an1t5fyo1n" path="res://Mundo/Enemigos/Enemigo_slimev2.tscn" id="6_dlnai"]
 [ext_resource type="PackedScene" uid="uid://ma8wgtytf7er" path="res://GUI/Pausa.tscn" id="7_4ihor"]
+[ext_resource type="PackedScene" uid="uid://ckys4ri76vmbf" path="res://Mundo/Lluvia.tscn" id="8_l36l3"]
+[ext_resource type="PackedScene" uid="uid://djgiam1cbvj1b" path="res://Mundo/Puerta.tscn" id="9_vooqn"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_cgn40")
@@ -27,3 +29,8 @@ position = Vector2(346, 192)
 Velocidad = null
 
 [node name="Pausa" parent="." instance=ExtResource("7_4ihor")]
+
+[node name="Lluvia" parent="." instance=ExtResource("8_l36l3")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("9_vooqn")]
+position = Vector2(404, -23)

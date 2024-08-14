@@ -8,6 +8,8 @@ public partial class Pausa : CanvasLayer
 	private Label NameLabel, StageLabel, ClimaLabel, HpLabel;
 	private DatosPersonaje datosPersonaje;
 
+    private PanelContainer panel;
+
 	private Button Continuar, Salir;
 
 	private Button[] botones;
@@ -15,6 +17,8 @@ public partial class Pausa : CanvasLayer
 
     public override void _Ready()
     {
+        panel = GetNode<PanelContainer>("Player/PanelContainer");
+
         NameLabel = GetNode<Label>("Player/Nombre");
         StageLabel = GetNode<Label>("Player/Stage");
         ClimaLabel = GetNode<Label>("Player/Clima");
@@ -73,12 +77,23 @@ public partial class Pausa : CanvasLayer
     {
         string filePath = "user://DatosPersonaje.json";
         datosPersonaje = await DatosPersonaje.CargarDatosAsync(filePath);
+        Global global = (Global)GetNode("/root/Global");
 
         if (datosPersonaje != null)
         {
+            PackedScene packedScene = (PackedScene)ResourceLoader.Load($"res://Personajes/{datosPersonaje.Personaje.ToLower()}_combate.tscn");
+            Node sceneInstance = packedScene.Instantiate();
+            panel.AddChild(sceneInstance);
+            sceneInstance.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
+            sceneInstance.GetNode<Label>("Label").Visible = false;
+            if (sceneInstance is CharacterBody2D character)
+            {
+                character.Position = new Vector2(15, 35);
+            }
+
             NameLabel.Text = datosPersonaje.Personaje;
             StageLabel.Text = $"Stage: {datosPersonaje.Stage}";
-            ClimaLabel.Text = "Clima: Soleado";
+            ClimaLabel.Text = $"Clima: {global.Clima}";
             HpLabel.Text = $"HP: {datosPersonaje.VidaActual}";
         }
         else
