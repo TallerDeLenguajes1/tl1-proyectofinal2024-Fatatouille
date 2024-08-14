@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using MyGame.GUI;
-using MovimientoEnemigo;
 
 public partial class Combate : TileMap
 {
@@ -12,11 +11,12 @@ public partial class Combate : TileMap
     private int vida_enemigo = 100;
     private int accion_enemigo;
 
+    private Label vidaJugador;
+    private Label vidaEnemigo;
+
     public override void _Ready()
     {
         Global global = (Global)GetNode("/root/Global");
-
-        Movimiento_Enemigo enemigoActual = global.EnemigoActual;
         
         AccionControl = GetNode<Accion>("Accion");
 
@@ -41,12 +41,13 @@ public partial class Combate : TileMap
                 {
                     jugador = character;
                     character.Position = new Vector2(35, 168);
-                    
+                    vidaJugador = jugador.GetNode<Label>("Label");
                 }
                 if (enemigoInstance is CharacterBody2D enemy)
                 {
                     enemigo = enemy;
                     enemy.Position = new Vector2(365, 175);
+                    vidaEnemigo = enemigo.GetNode<Label>("Label");
                 }
                 jugador.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
                 enemigo.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
@@ -56,6 +57,7 @@ public partial class Combate : TileMap
                 GD.PrintErr("No se pudo cargar la escena del personaje.");
             }
         }
+        vidaJugador.Text = Convert.ToString(global.vida);
     }
     private void OnAtacarPressed()
     {
@@ -67,12 +69,14 @@ public partial class Combate : TileMap
         vida_enemigo -= random.Next(101);
         jugador.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Atacar");
         enemigo.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("GetHit");
-        timer.Timeout+= AccionEnemigo;
-        GetTree().CreateTimer(5).Timeout += MostrarHUD;
 
+        vidaEnemigo.Text = Convert.ToString(vida_enemigo);
         if (vida_enemigo <=0){
-            enemigo.QueueFree();
-            GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
+            enemigo.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Muerte");
+            GetTree().CreateTimer(3).Timeout += VolverAlJuego;
+        }else{
+            timer.Timeout+= AccionEnemigo;
+            GetTree().CreateTimer(5).Timeout += MostrarHUD;
         }
     }
 
@@ -90,6 +94,8 @@ public partial class Combate : TileMap
         AccionControl.Visible = false;
 
         timer.Timeout+= AccionEnemigo;
+        
+        vidaJugador.Text = Convert.ToString(global.vida);
         GetTree().CreateTimer(5).Timeout += MostrarHUD;
     }
 
@@ -105,10 +111,12 @@ public partial class Combate : TileMap
                 jugador.QueueFree();
                 GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
             }
+            vidaJugador.Text = Convert.ToString(global.vida);
         }else{
             vida_enemigo += random.Next(5, 51);
             enemigo.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Cura");
             jugador.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
+            vidaEnemigo.Text = Convert.ToString(vida_enemigo);
         }
     }
 
@@ -116,6 +124,12 @@ public partial class Combate : TileMap
         AccionControl.Visible = true;
         jugador.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
         enemigo.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("Idle");
+    }
+
+    private void VolverAlJuego(){
+        Global global = (Global)GetNode("/root/Global");
+        enemigo.QueueFree();
+        GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
     }
 
 }

@@ -2,38 +2,32 @@ using Godot;
 using System;
 using System.IO;
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace MyGame
 {
     public class DatosPersonaje
     {
         public string Personaje { get; set; }
-        public int Nivel { get; set; }
-        public int VidaActual { get; set; }
-        public int VidaMaxima { get; set; }
-        public int CantidadPociones { get; set; }
-        public string NivelActual { get; set; }
+        public int VidaActual { get; set; } = 100;
+        public int CantidadEnemigosEliminados { get; set; } = 0;
 
-        public DatosPersonaje(string personaje, int nivel, int vidaActual, int vidaMaxima, int cantidadPociones, string nivelActual)
+        public DatosPersonaje() { }
+
+        public DatosPersonaje(string personaje, int vidaActual, int cantEnemigos)
         {
             Personaje = personaje;
-            Nivel = nivel;
             VidaActual = vidaActual;
-            VidaMaxima = vidaMaxima;
-            CantidadPociones = cantidadPociones;
-            NivelActual = nivelActual;
+            CantidadEnemigosEliminados = cantEnemigos;
         }
 
-        public void GuardarDatos(string filePath)
+        public async Task GuardarDatosAsync(string filePath)
         {
             try
             {
-                // Serializar el objeto a JSON usando System.Text.Json
+                string fullPath = ProjectSettings.GlobalizePath(filePath);
                 string json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
-
-                // Guardar el JSON en un archivo
-                File.WriteAllText(filePath, json);
+                await File.WriteAllTextAsync(fullPath, json);
             }
             catch (Exception ex)
             {
@@ -41,27 +35,31 @@ namespace MyGame
             }
         }
 
-        public static DatosPersonaje CargarDatos(string filePath)
+        public static async Task<DatosPersonaje> CargarDatosAsync(string filePath)
         {
             try
             {
-                if (!File.Exists(filePath))
+                string fullPath = ProjectSettings.GlobalizePath(filePath);
+                if (!File.Exists(fullPath))
                 {
                     GD.PrintErr("Archivo de datos no encontrado.");
                     return null;
                 }
 
-                // Leer el JSON desde el archivo
-                string json = File.ReadAllText(filePath);
-
-                // Deserializar el JSON a un objeto DatosPersonaje
-                return JsonSerializer.Deserialize<DatosPersonaje>(json);
+                string json = await File.ReadAllTextAsync(fullPath);
+                var datos = JsonSerializer.Deserialize<DatosPersonaje>(json);
+                return datos.EsDatoValido() ? datos : null;
             }
             catch (Exception ex)
             {
                 GD.PrintErr($"Error al cargar los datos: {ex.Message}");
                 return null;
             }
+        }
+
+        public bool EsDatoValido()
+        {
+            return !string.IsNullOrEmpty(Personaje) && VidaActual >= 0 && CantidadEnemigosEliminados >= 0;
         }
     }
 }

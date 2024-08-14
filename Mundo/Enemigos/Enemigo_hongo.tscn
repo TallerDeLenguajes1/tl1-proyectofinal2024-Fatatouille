@@ -117,9 +117,8 @@ height = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ak4"]
 size = Vector2(20, 22)
 
-[node name="Enemigo_hongo" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_cmmkk")
-Velocidad = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

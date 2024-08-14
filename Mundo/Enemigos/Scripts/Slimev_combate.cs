@@ -1,12 +1,12 @@
 using Godot;
 using System;
-using Data;
+using MovimientoEnemigo;
 
-public partial class Slimev_combate : Data.Data
+public partial class Slimev_combate : Movimiento_Enemigo
 {
-	public int Vida = 100;
     public override void _Ready()
     {
         base._Ready();
+        NombreEnemigo = "Slimev";
     }
 }

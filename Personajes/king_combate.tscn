@@ -1260,3 +1260,12 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1.456)
 shape = SubResource("RectangleShape2D_2qhbv")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -12.0
+offset_top = -44.0
+offset_right = 11.0
+offset_bottom = -28.0
+theme_override_font_sizes/font_size = 11
+text = "100"

@@ -13,14 +13,20 @@ namespace MovimientoEnemigo
         private int _puntoActual = 0;
         private Vector2 _posicionObjetivo;
         private AnimatedSprite2D _sprite;
-        private Area2D _area;
+        private Area2D Area;
+
+        public string NombreEnemigo {get; set;}
 
         public override void _Ready()
         {
+            string currentScene = GetTree().CurrentScene.SceneFilePath;
+
             _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-            _area = GetNode<Area2D>("Area2D");
-            _area.BodyEntered += OnBodyEntered;
+            if(currentScene != "res://Mundo/Combate.tscn"){
+                Area = GetNode<Area2D>("Area2D");
+                Area.BodyEntered += OnBodyEntered;
+            }
 
             foreach (Node child in GetChildren())
             {
@@ -82,35 +88,30 @@ namespace MovimientoEnemigo
             if (body is Movimiento.Movimiento)
             {
                 Global global = GetNode<Global>("/root/Global");
-                global.EnemigoActual = this;
+
+                global.EnemigosEliminados.Add(this.Name);
                 
-                CallDeferred("CambiarNivel");
                 SetProcess(false);
                 SetPhysicsProcess(false);
                 GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-                GetTree().CreateTimer(0.5).Timeout += EliminarEnemigoDefinitivamente;
+
+                global.EnemigoSeleccionado = $"res://Mundo/Enemigos/{NombreEnemigo}_combate.tscn";
+
+                CallDeferred("CambiarNivel");
             }
         }
 
         public override void _ExitTree()
         {
-            if (_area != null)
+            if (Area != null)
             {
-                _area.BodyEntered -= OnBodyEntered;
+                Area.BodyEntered -= OnBodyEntered;
             }
         }
 
         private void CambiarNivel(){
             GetTree().ChangeSceneToFile("res://Mundo/Combate.tscn");
         }
-        private void EliminarEnemigoDefinitivamente()
-        {
-            Global global = GetNode<Global>("/root/Global");
-            if (global.EnemigoActual != null)
-            {
-                global.EnemigoActual.QueueFree();
-                global.EnemigoActual = null;
-            }
-        }
+        
     }
 }

@@ -377,3 +377,12 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.5, 7.5)
 shape = SubResource("RectangleShape2D_ppmiu")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 3.0
+offset_bottom = -17.0
+theme_override_font_sizes/font_size = 11
+text = "100"

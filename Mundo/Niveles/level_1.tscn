@@ -14,13 +14,14 @@ script = ExtResource("1_cgn40")
 
 [node name="Enemigo_hongo2" parent="." instance=ExtResource("4_sr5gr")]
 position = Vector2(407, 98)
+Velocidad = 50.0
 
 [node name="Enemigo_hongo" parent="." instance=ExtResource("3_edfd1")]
 position = Vector2(116, 35)
 
 [node name="Enemigo_slimev2" parent="." instance=ExtResource("6_dlnai")]
 position = Vector2(122, 120)
+Velocidad = 50.0
 
 [node name="Enemigo_slimev" parent="." instance=ExtResource("6_brq8w")]
 position = Vector2(346, 192)
-Velocidad = null
