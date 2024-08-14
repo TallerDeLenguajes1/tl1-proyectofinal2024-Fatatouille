@@ -1,49 +1,61 @@
 using Godot;
 using System;
 using MyGame;
-using System.Runtime.CompilerServices;
 
 public partial class level_1 : Node2D
 {
     private string Nombre;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+
+	public override async void _Ready()
     {
         Global global = (Global)GetNode("/root/Global");
+        string filePath = "user://DatosPersonaje.json";
+
+        global.Estado = "vivo";
+
+        DatosPersonaje datosPersonaje = await DatosPersonaje.CargarDatosAsync(filePath);
         global.stage = 1;
 
-        if (global.Seleccionado != -1)
+        if(datosPersonaje != null)
         {
-            string personajeRuta = global.PathPersonaje(global.Seleccionado);
-            PackedScene personajeScene = (PackedScene)ResourceLoader.Load(personajeRuta);
-            Nombre = global.NombrePersonaje(global.Seleccionado);
+            global.vida = datosPersonaje.VidaActual;
+            global.Seleccionado = datosPersonaje.PersonajeSeleccionado;
+            global.EnemigosEliminados = datosPersonaje.EnemigosEliminados;
 
-            if (personajeScene != null)
+            if (global.Seleccionado != -1)
             {
-                Node personajeInstance = personajeScene.Instantiate();
-                AddChild(personajeInstance);
+                string personajeRuta = global.PathPersonaje(global.Seleccionado);
+                PackedScene personajeScene = (PackedScene)ResourceLoader.Load(personajeRuta);
+                Nombre = global.NombrePersonaje(global.Seleccionado);
 
-				if (personajeInstance is CharacterBody2D character)
+                if (personajeScene != null)
                 {
-                    character.Position = new Vector2(15, 100);
+                    Node personajeInstance = personajeScene.Instantiate();
+                    AddChild(personajeInstance);
+
+                    if (personajeInstance is CharacterBody2D character)
+                    {
+                        character.Position = new Vector2(15, 100);
+                    }
+                }
+                else
+                {
+                    GD.PrintErr("No se pudo cargar la escena del personaje.");
                 }
             }
-            else
-            {
-                GD.PrintErr("No se pudo cargar la escena del personaje.");
-            }
-        }
 
-        Guardar();
-        
-        foreach (string enemigoEliminado in global.EnemigosEliminados)
-        {
-            Node enemigo = GetNodeOrNull(enemigoEliminado);
-            if (enemigo != null)
+            Guardar();
+            
+            foreach (string enemigoEliminado in global.EnemigosEliminados)
             {
-                enemigo.QueueFree();
+                Node enemigo = GetNodeOrNull(enemigoEliminado);
+                if (enemigo != null)
+                {
+                    enemigo.QueueFree();
+                }
             }
         }
+        
     }
 
     private async void Guardar(){
@@ -53,10 +65,13 @@ public partial class level_1 : Node2D
             Nombre, 
             global.vida,
             global.EnemigosEliminados.Count,
-            global.stage
+            global.stage,
+            global.Seleccionado,
+            global.EnemigosEliminados,
+            global.Estado
         );
 
-        string filePath = "res://Settings/Data/DatosPersonaje.json";
+        string filePath = "user://DatosPersonaje.json";
         await datosPersonaje.GuardarDatosAsync(filePath);
     }
 }

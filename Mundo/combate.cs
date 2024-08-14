@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using MyGame.GUI;
+using MyGame;
 
 public partial class Combate : TileMap
 {
@@ -13,10 +14,16 @@ public partial class Combate : TileMap
 
     private Label vidaJugador;
     private Label vidaEnemigo;
+    private string Nombre;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
         Global global = (Global)GetNode("/root/Global");
+        string filePath = "user://DatosPersonaje.json";
+        
+        DatosPersonaje datosPersonaje = await DatosPersonaje.CargarDatosAsync(filePath);
+
+        Nombre = datosPersonaje.Personaje;
         
         AccionControl = GetNode<Accion>("Accion");
 
@@ -108,7 +115,9 @@ public partial class Combate : TileMap
             jugador.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("GetHit");
             if(global.vida <= 0){
                 jugador.QueueFree();
-                GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
+                global.Estado = "muerto";
+                Guardar();
+                GetTree().ChangeSceneToFile($"res://GUI/GameOver.tscn");
             }
             vidaJugador.Text = Convert.ToString(global.vida);
         }else{
@@ -129,7 +138,27 @@ public partial class Combate : TileMap
         Global global = (Global)GetNode("/root/Global");
 
         enemigo.QueueFree();
+
+        Guardar();
+
         GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
+    }
+
+    private async void Guardar(){
+        Global global = (Global)GetNode("/root/Global");
+
+        DatosPersonaje datosPersonaje = new DatosPersonaje(
+            Nombre, 
+            global.vida,
+            global.EnemigosEliminados.Count,
+            global.stage,
+            global.Seleccionado,
+            global.EnemigosEliminados,
+            global.Estado
+        );
+
+        string filePath = "user://DatosPersonaje.json";
+        await datosPersonaje.GuardarDatosAsync(filePath);
     }
 
 }

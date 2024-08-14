@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Teclas;
+using MyGame;
 
 public partial class selector_personaje : CanvasLayer
 {
@@ -8,6 +9,8 @@ public partial class selector_personaje : CanvasLayer
 	private Button SeleccionarKing;
 	private Button SeleccionarRonin;
 	private Button SeleccionarStriker;
+
+	private string Nombre;
 
 	private Button volver;
 
@@ -96,9 +99,30 @@ public partial class selector_personaje : CanvasLayer
 		global.Seleccionado = personajeId;
 		global.PersonajeCombate = personajeId;
 
+		Nombre = global.NombrePersonaje(personajeId);
+
 		GD.Print($"Personaje {personajeId} seleccionado.");
+
+		Guardar();
 
 		GetTree().ChangeSceneToFile("res://Mundo/Niveles/level_1.tscn");
 	}
+
+	private async void Guardar(){
+        Global global = (Global)GetNode("/root/Global");
+
+        DatosPersonaje datosPersonaje = new DatosPersonaje(
+            Nombre, 
+            100,
+            0,
+            1,
+			global.Seleccionado,
+			global.EnemigosEliminados,
+			"vivo"
+        );
+
+        string filePath = "user://DatosPersonaje.json";
+        await datosPersonaje.GuardarDatosAsync(filePath);
+    }
 
 }

@@ -1,6 +1,9 @@
 using Godot;
 using System;
 using Teclas;
+using MyGame;
+using System.IO;
+using System.Text.Json;
 
 public partial class main : CanvasLayer
 {
@@ -8,7 +11,8 @@ public partial class main : CanvasLayer
 	private Button botonSalir;
 	private Button[] botones;
     private int botonSeleccionado = 0;
-	// Called when the node enters the scene tree for the first time.
+
+	private string filePath = "user://DatosPersonaje.json";
 	public override void _Ready()
 	{
 		botonIniciar = GetNode<Button>("Iniciar");
@@ -44,9 +48,32 @@ public partial class main : CanvasLayer
         }
     }
 
-	private void OnIniciarPressed()
+	private async void OnIniciarPressed()
     {
-        GetTree().ChangeSceneToFile("res://GUI/selector_personaje.tscn");
+        if (File.Exists(ProjectSettings.GlobalizePath(filePath)))
+        {
+            GD.Print("Datos guardados encontrados, cargando el juego guardado...");
+
+            string json = await File.ReadAllTextAsync(ProjectSettings.GlobalizePath(filePath));
+            var datosPersonaje = JsonSerializer.Deserialize<DatosPersonaje>(json);
+
+            if (datosPersonaje != null)
+            {
+                string nivelPath = $"res://Mundo/Niveles/level_{datosPersonaje.Stage}.tscn";
+                GD.Print($"Cargando el nivel: {nivelPath}");
+                GetTree().ChangeSceneToFile(nivelPath);
+            }
+            else
+            {
+                GD.PrintErr("Error al deserializar los datos guardados.");
+                GetTree().ChangeSceneToFile("res://GUI/selector_personaje.tscn");
+            }
+        }
+        else
+        {
+            GD.Print("No se encontraron datos guardados, redirigiendo a la selección de personaje...");
+            GetTree().ChangeSceneToFile("res://GUI/selector_personaje.tscn");
+        }
     }
 
     private void OnSalirPressed()

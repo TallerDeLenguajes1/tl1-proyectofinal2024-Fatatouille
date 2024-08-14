@@ -52,13 +52,13 @@ position = Vector2(38.625, 21)
 scale = Vector2(1.57422, 1.01538)
 texture = SubResource("AtlasTexture_qsb7y")
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="Continuar" type="Button" parent="Control/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Continuar"
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+[node name="Salir" type="Button" parent="Control/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8

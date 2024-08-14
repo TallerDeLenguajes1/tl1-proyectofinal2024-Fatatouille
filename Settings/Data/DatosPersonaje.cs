@@ -3,24 +3,31 @@ using System;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace MyGame
 {
     public class DatosPersonaje
     {
         public string Personaje { get; set; }
-        public int VidaActual { get; set; } = 100;
-        public int CantidadEnemigosEliminados { get; set; } = 0;
-        public int Stage {get; set; } = 1;
+        public int VidaActual { get; set; }
+        public int CantidadEnemigosEliminados { get; set; }
+        public int Stage {get; set; }
+        public int PersonajeSeleccionado {get; set;}
+        public List<string> EnemigosEliminados { get; set; } = new List<string>();
+        public string Estado {get; set;} = "vivo";
 
         public DatosPersonaje() { }
 
-        public DatosPersonaje(string personaje, int vidaActual, int cantEnemigos, int stage)
+        public DatosPersonaje(string personaje, int vidaActual, int cantEnemigos, int stage, int seleccionado, List<string> enemigosEliminados, string estado)
         {
             Personaje = personaje;
             VidaActual = vidaActual;
             CantidadEnemigosEliminados = cantEnemigos;
             Stage = stage;
+            PersonajeSeleccionado = seleccionado;
+            EnemigosEliminados = enemigosEliminados;
+            Estado = estado;
         }
 
         public async Task GuardarDatosAsync(string filePath)

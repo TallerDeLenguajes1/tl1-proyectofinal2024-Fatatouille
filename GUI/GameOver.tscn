@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://blay55u3wrfxf"]
+
+[ext_resource type="Script" path="res://GUI/GameOver.cs" id="1_ckk3i"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_ckk3i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0, 0, 1)
+
+[node name="Estado" type="Label" parent="."]
+texture_filter = 1
+offset_left = 112.0
+offset_top = 12.0
+offset_right = 251.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 23
+text = "Ganó/Perdió"
+
+[node name="Personaje" type="Label" parent="."]
+texture_filter = 1
+offset_left = 73.0
+offset_top = 67.0
+offset_right = 285.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 10
+text = "Personaje utilizado: "
+
+[node name="Datos" type="Label" parent="."]
+texture_filter = 1
+offset_left = 123.0
+offset_top = 44.0
+offset_right = 236.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 11
+text = "Detalles de la partida"
+
+[node name="Enemigos" type="Label" parent="."]
+texture_filter = 1
+offset_left = 73.0
+offset_top = 84.0
+offset_right = 271.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 10
+text = "Enemigos asesinados: "
+
+[node name="Stage" type="Label" parent="."]
+texture_filter = 1
+offset_left = 73.0
+offset_top = 102.0
+offset_right = 329.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 10
+text = "Máximo nivel: "
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = 177.0
+offset_top = 147.0
+offset_right = 219.0
+offset_bottom = 178.0
+text = "Salir"

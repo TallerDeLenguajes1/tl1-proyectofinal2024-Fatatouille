@@ -16,6 +16,9 @@ public partial class Global : Node
     public Movimiento_Enemigo EnemigoActual { get; set; }
 
     public List<string> EnemigosEliminados { get; set; } = new List<string>();
+    
+    public string Estado {get; set;}
+
     public override void _Ready()
     {
         Instance = this;
