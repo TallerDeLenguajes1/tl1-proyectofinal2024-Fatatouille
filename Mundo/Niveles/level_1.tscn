@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4us2xwvim1ij"]
+[gd_scene load_steps=8 format=3 uid="uid://4us2xwvim1ij"]
 
 [ext_resource type="Script" path="res://Mundo/Niveles/level_1.cs" id="1_cgn40"]
 [ext_resource type="PackedScene" uid="uid://s0t0hapa2agv" path="res://Mundo/Niveles/level_1_tile.tscn" id="1_o2v1w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c363qtdwcli8x" path="res://Mundo/Enemigos/Enemigo_hongo2.tscn" id="4_sr5gr"]
 [ext_resource type="PackedScene" uid="uid://bi334scimg22j" path="res://Mundo/Enemigos/Enemigo_slimev.tscn" id="6_brq8w"]
 [ext_resource type="PackedScene" uid="uid://p7an1t5fyo1n" path="res://Mundo/Enemigos/Enemigo_slimev2.tscn" id="6_dlnai"]
+[ext_resource type="PackedScene" uid="uid://ma8wgtytf7er" path="res://GUI/Pausa.tscn" id="7_4ihor"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_cgn40")
@@ -14,14 +15,15 @@ script = ExtResource("1_cgn40")
 
 [node name="Enemigo_hongo2" parent="." instance=ExtResource("4_sr5gr")]
 position = Vector2(407, 98)
-Velocidad = 50.0
 
 [node name="Enemigo_hongo" parent="." instance=ExtResource("3_edfd1")]
 position = Vector2(116, 35)
 
 [node name="Enemigo_slimev2" parent="." instance=ExtResource("6_dlnai")]
 position = Vector2(122, 120)
-Velocidad = 50.0
 
 [node name="Enemigo_slimev" parent="." instance=ExtResource("6_brq8w")]
 position = Vector2(346, 192)
+Velocidad = null
+
+[node name="Pausa" parent="." instance=ExtResource("7_4ihor")]

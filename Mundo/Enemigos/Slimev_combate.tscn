@@ -366,6 +366,7 @@ size = Vector2(31, 19)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(10, -7)
 script = ExtResource("1_44h6d")
+Velocidad = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -7,10 +7,8 @@ public partial class Global : Node
 {
     public int Seleccionado { get; set; } = -1; // -1 indica que ningún personaje está seleccionado.
     public int vida { get; set; } = 100; //Empieza full vidsa
-    public int nivel {get; set; } = 1;
-    public int fuerza {get; set; } = 10;
     public int stage {get; set; }= 1;
-
+    public string Nombre {get; set;}
     public static Global Instance {get; private set; }
 
     public int PersonajeCombate{ get; set; } = -1;
@@ -33,6 +31,21 @@ public partial class Global : Node
                 return "res://Personajes/ronin_mundo.tscn"; 
             case 2:
                 return "res://Personajes/striker_mundo.tscn"; 
+            default:
+                GD.PrintErr("ID de personaje no válido.");
+                return "";
+        }
+    }
+    public string NombrePersonaje(int personaje)
+    {
+        switch (personaje)
+        {
+            case 0:
+                return "King"; 
+            case 1:
+                return "Ronin"; 
+            case 2:
+                return "Striker"; 
             default:
                 GD.PrintErr("ID de personaje no válido.");
                 return "";

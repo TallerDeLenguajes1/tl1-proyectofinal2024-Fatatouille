@@ -11,14 +11,16 @@ namespace MyGame
         public string Personaje { get; set; }
         public int VidaActual { get; set; } = 100;
         public int CantidadEnemigosEliminados { get; set; } = 0;
+        public int Stage {get; set; } = 1;
 
         public DatosPersonaje() { }
 
-        public DatosPersonaje(string personaje, int vidaActual, int cantEnemigos)
+        public DatosPersonaje(string personaje, int vidaActual, int cantEnemigos, int stage)
         {
             Personaje = personaje;
             VidaActual = vidaActual;
             CantidadEnemigosEliminados = cantEnemigos;
+            Stage = stage;
         }
 
         public async Task GuardarDatosAsync(string filePath)

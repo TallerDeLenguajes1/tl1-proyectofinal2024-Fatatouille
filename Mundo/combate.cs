@@ -24,8 +24,7 @@ public partial class Combate : TileMap
         AccionControl.CurarPressed += OnCurarPressed;
 
         if (global.Seleccionado != -1)
-        {
-            
+        {  
             string personajeRuta = global.PathCombate(global.Seleccionado);
             PackedScene personajeScene = (PackedScene)ResourceLoader.Load(personajeRuta);
             PackedScene enemigoScene = (PackedScene)ResourceLoader.Load(global.EnemigoSeleccionado);
@@ -128,6 +127,7 @@ public partial class Combate : TileMap
 
     private void VolverAlJuego(){
         Global global = (Global)GetNode("/root/Global");
+
         enemigo.QueueFree();
         GetTree().ChangeSceneToFile($"res://Mundo/Niveles/level_{global.stage}.tscn");
     }

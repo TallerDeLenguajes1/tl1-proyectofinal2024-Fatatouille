@@ -1,8 +1,11 @@
 using Godot;
 using System;
+using MyGame;
+using System.Runtime.CompilerServices;
 
 public partial class level_1 : Node2D
 {
+    private string Nombre;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
     {
@@ -13,6 +16,7 @@ public partial class level_1 : Node2D
         {
             string personajeRuta = global.PathPersonaje(global.Seleccionado);
             PackedScene personajeScene = (PackedScene)ResourceLoader.Load(personajeRuta);
+            Nombre = global.NombrePersonaje(global.Seleccionado);
 
             if (personajeScene != null)
             {
@@ -29,6 +33,8 @@ public partial class level_1 : Node2D
                 GD.PrintErr("No se pudo cargar la escena del personaje.");
             }
         }
+
+        Guardar();
         
         foreach (string enemigoEliminado in global.EnemigosEliminados)
         {
@@ -38,5 +44,19 @@ public partial class level_1 : Node2D
                 enemigo.QueueFree();
             }
         }
+    }
+
+    private async void Guardar(){
+        Global global = (Global)GetNode("/root/Global");
+
+        DatosPersonaje datosPersonaje = new DatosPersonaje(
+            Nombre, 
+            global.vida,
+            global.EnemigosEliminados.Count,
+            global.stage
+        );
+
+        string filePath = "res://Settings/Data/DatosPersonaje.json";
+        await datosPersonaje.GuardarDatosAsync(filePath);
     }
 }
